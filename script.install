@@ -1,0 +1,5 @@
+#!/bin/bash -e
+post_install() {
+	export ADMIN_PASS="$(tr -cd '[:alnum:]' < /dev/urandom | fold -w64 | head -n 1)"
+	[ -f "/etc/secrets.env" ] || (cat /etc/secrets.env.template | envsubst > /etc/secrets.env)
+}
