@@ -14,7 +14,6 @@ provides=('server-config-grug')
 conflicts=('server-config-grug')
 install="script.install"
 package() {
-  cd ../
   mkdir -p "$pkgdir/etc"
   cp server.env "$pkgdir/etc/"
   cp secrets.env.template "$pkgdir/etc/"
